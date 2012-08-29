@@ -73,6 +73,9 @@ public class QuickTour {
         // get it (since it's the only one in there since we dropped the rest earlier on)
         DBObject myDoc = coll.findOne();
         System.out.println(myDoc);
+        
+        // update a document partially
+        coll.update(new BasicDBObject("name","MongoDB"), new BasicDBObject("$set",new BasicDBObject("info.y",101)));
 
         // now, lets add lots of little documents to the collection so we can explore queries and cursors
         for (int i=0; i < 100; i++) {
